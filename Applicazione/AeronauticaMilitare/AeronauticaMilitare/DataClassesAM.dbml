@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="basemilitare" Class="DataClassesAMDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\basemilitare.mdf;Integrated Security=True" SettingsObjectName="AeronauticaMilitare.Properties.Settings" SettingsPropertyName="basemilitareConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AEROMOBILE" Member="AEROMOBILE">
+    <Type Name="AEROMOBILE">
+      <Column Name="CodiceAeromobile" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Costruttore" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="FunzionePrimaria" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="QuotaOperativa" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="VelocitàMassima" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="Autonomia" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="SpintaMassima" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="CapienzaSerbatoio" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="Motore" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Peso" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="LunghezzaPistaDiAtterraggio" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroMembri" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Dimensioni" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="AEROMOBILE_VOLO" Member="VOLO" ThisKey="CodiceAeromobile" OtherKey="CodiceAeromobile" Type="VOLO" />
+      <Association Name="AEROMOBILE_ARMAMENTO" Member="ARMAMENTO" ThisKey="CodiceAeromobile" OtherKey="CodiceAeromobile" Type="ARMAMENTO" />
+      <Association Name="AEROMOBILE_MANUTENZIONE" Member="MANUTENZIONE" ThisKey="CodiceAeromobile" OtherKey="CodiceAeromobile" Type="MANUTENZIONE" />
+      <Association Name="AEROMOBILE_PATENTE" Member="PATENTE" ThisKey="CodiceAeromobile" OtherKey="CodiceAeromobile" Type="PATENTE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VOLO" Member="VOLO">
+    <Type Name="VOLO">
+      <Column Name="CodiceVolo" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Partenza" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="Arrivo" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="Data" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DurataComplessiva" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MatricolaMilitare" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CodiceAeromobile" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="AEROMOBILE_VOLO" Member="AEROMOBILE" ThisKey="CodiceAeromobile" OtherKey="CodiceAeromobile" Type="AEROMOBILE" IsForeignKey="true" />
+      <Association Name="MILITARE_VOLO" Member="MILITARE" ThisKey="MatricolaMilitare" OtherKey="MatricolaMilitare" Type="MILITARE" IsForeignKey="true" />
+      <Association Name="MISSIONE_VOLO" Member="MISSIONE" ThisKey="Nome" OtherKey="Nome" Type="MISSIONE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AEROPORTO" Member="AEROPORTO">
+    <Type Name="AEROPORTO">
+      <Column Name="CodiceAeroporto" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LunghezzaPista" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="AEROPORTO_MISSIONE" Member="MISSIONE" ThisKey="CodiceAeroporto" OtherKey="AeroportoDiArrivo" Type="MISSIONE" />
+      <Association Name="AEROPORTO_MISSIONE1" Member="MISSIONE1" ThisKey="CodiceAeroporto" OtherKey="AeroportoDiPartenza" Type="MISSIONE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ARMAMENTO" Member="ARMAMENTO">
+    <Type Name="ARMAMENTO">
+      <Column Name="CodiceAeromobile" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodiceArmamento" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NumeroMissili" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroMunizioni" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="AEROMOBILE_ARMAMENTO" Member="AEROMOBILE" ThisKey="CodiceAeromobile" OtherKey="CodiceAeromobile" Type="AEROMOBILE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.IDONEITA_MEDICA" Member="IDONEITA_MEDICA">
+    <Type Name="IDONEITA_MEDICA">
+      <Column Name="CodiceIdoneità" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StatoMentale" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CondizioniGenerali" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DataDiScadenza" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="MatricolaMilitare" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="MILITARE_IDONEITA_MEDICA" Member="MILITARE" ThisKey="MatricolaMilitare" OtherKey="MatricolaMilitare" Type="MILITARE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MANUTENZIONE" Member="MANUTENZIONE">
+    <Type Name="MANUTENZIONE">
+      <Column Name="CodiceAeromobile" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatricolaMilitare" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Data" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StatoDelVelivolo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="AEROMOBILE_MANUTENZIONE" Member="AEROMOBILE" ThisKey="CodiceAeromobile" OtherKey="CodiceAeromobile" Type="AEROMOBILE" IsForeignKey="true" />
+      <Association Name="MILITARE_MANUTENZIONE" Member="MILITARE" ThisKey="MatricolaMilitare" OtherKey="MatricolaMilitare" Type="MILITARE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MILITARE" Member="MILITARE">
+    <Type Name="MILITARE">
+      <Column Name="MatricolaMilitare" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cognome" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Grado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="CodiceFiscale" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="StatoFamiliare" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="Stormo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GruppoDiVolo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MILITARE_VOLO" Member="VOLO" ThisKey="MatricolaMilitare" OtherKey="MatricolaMilitare" Type="VOLO" />
+      <Association Name="MILITARE_IDONEITA_MEDICA" Member="IDONEITA_MEDICA" ThisKey="MatricolaMilitare" OtherKey="MatricolaMilitare" Type="IDONEITA_MEDICA" />
+      <Association Name="MILITARE_MANUTENZIONE" Member="MANUTENZIONE" ThisKey="MatricolaMilitare" OtherKey="MatricolaMilitare" Type="MANUTENZIONE" />
+      <Association Name="MILITARE_PATENTE" Member="PATENTE" ThisKey="MatricolaMilitare" OtherKey="MatricolaMilitare" Type="PATENTE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MISSIONE" Member="MISSIONE">
+    <Type Name="MISSIONE">
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Descrizione" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Emergenza" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CodiceAeroporto" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="AeroportoDiPartenza" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="AeroportoDiArrivo" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Association Name="MISSIONE_VOLO" Member="VOLO" ThisKey="Nome" OtherKey="Nome" Type="VOLO" />
+      <Association Name="AEROPORTO_MISSIONE" Member="AEROPORTO" ThisKey="AeroportoDiArrivo" OtherKey="CodiceAeroporto" Type="AEROPORTO" IsForeignKey="true" />
+      <Association Name="AEROPORTO_MISSIONE1" Member="AEROPORTO1" ThisKey="AeroportoDiPartenza" OtherKey="CodiceAeroporto" Type="AEROPORTO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PATENTE" Member="PATENTE">
+    <Type Name="PATENTE">
+      <Column Name="CodiceAeromobile" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatricolaMilitare" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DataDiRilascio" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="MILITARE_PATENTE" Member="MILITARE" ThisKey="MatricolaMilitare" OtherKey="MatricolaMilitare" Type="MILITARE" IsForeignKey="true" />
+      <Association Name="AEROMOBILE_PATENTE" Member="AEROMOBILE" ThisKey="CodiceAeromobile" OtherKey="CodiceAeromobile" Type="AEROMOBILE" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

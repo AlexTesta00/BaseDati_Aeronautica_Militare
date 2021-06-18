@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 18.625" name="DataClassesAM">
+  <DataContextMoniker Name="/DataClassesAMDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d71ab258-ff69-4602-a317-af229c059438" absoluteBounds="0.75, 0.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/DataClassesAMDataContext/AEROMOBILE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2686af46-60f4-4c37-a4e6-119d8b0d1c84" absoluteBounds="0.765, 1.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="67e7959b-b69f-4f80-8710-d1d7ef8e2ba7" absoluteBounds="6.5, 5.375, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/DataClassesAMDataContext/VOLO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf6d4088-d626-41b3-8033-41f7e0d7e951" absoluteBounds="6.515, 5.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="53f98db2-f5e3-4b0d-b988-0ee367c47260" absoluteBounds="1, 13.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DataClassesAMDataContext/AEROPORTO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="038a7745-9eb1-4419-85fe-00301636e2f4" absoluteBounds="1.0150000000000001, 14.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="396d7c2f-7c3b-4a0c-8830-dc17b40c2029" absoluteBounds="3.5, 16.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesAMDataContext/ARMAMENTO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1cc5eb4a-2e3f-418d-9fba-f5bac99c8273" absoluteBounds="3.515, 17.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0faeacb3-cf28-4383-9ea6-08de859320a1" absoluteBounds="3.5, 10.125, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/DataClassesAMDataContext/IDONEITA_MEDICA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4dff9971-060e-4eec-b1f5-efe609c87b17" absoluteBounds="3.515, 10.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eee38def-6e04-4cdd-b9a7-e09738405e3d" absoluteBounds="3.5, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesAMDataContext/MANUTENZIONE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fdcaf88-9423-488d-a2cf-6f35065326ac" absoluteBounds="3.515, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="10d3d3ca-56d2-4c39-b630-26ecc7b6e9b9" absoluteBounds="0.75, 5, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/DataClassesAMDataContext/MILITARE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2279a8d7-4479-4221-b6be-d24d3a0ee5c5" absoluteBounds="0.765, 5.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="075f0c1d-3a11-4f2e-b3da-16813cfc4617" absoluteBounds="3.75, 13.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataClassesAMDataContext/MISSIONE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19a5ce0b-cfb2-4bd0-8a44-42cace7b645e" absoluteBounds="3.765, 13.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="175b8fe3-1400-478f-b2de-18ee73d3d6fd" absoluteBounds="3.5, 5.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DataClassesAMDataContext/PATENTE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d5beefff-92cf-4f83-b706-5222c6ddee4c" absoluteBounds="3.515, 6.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.71875); (7.5 : 1.71875); (7.5 : 5.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/AEROMOBILE/AEROMOBILE_VOLO" />
+      <nodes>
+        <classShapeMoniker Id="d71ab258-ff69-4602-a317-af229c059438" />
+        <classShapeMoniker Id="67e7959b-b69f-4f80-8710-d1d7ef8e2ba7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 4.25160970052083); (1.75 : 4.75); (2.91820412820513 : 4.75 : JumpStart); (3.0848707948718 : 4.75 : JumpEnd); (3.25 : 4.75); (3.25 : 17.5392976888021); (3.5 : 17.5392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/AEROMOBILE/AEROMOBILE_ARMAMENTO" />
+      <nodes>
+        <classShapeMoniker Id="d71ab258-ff69-4602-a317-af229c059438" />
+        <classShapeMoniker Id="396d7c2f-7c3b-4a0c-8830-dc17b40c2029" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.50080485026042); (3.5 : 3.50080485026042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/AEROMOBILE/AEROMOBILE_MANUTENZIONE" />
+      <nodes>
+        <classShapeMoniker Id="d71ab258-ff69-4602-a317-af229c059438" />
+        <classShapeMoniker Id="eee38def-6e04-4cdd-b9a7-e09738405e3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.46079752604167); (3.16666666666667 : 7.46079752604167 : JumpStart); (3.33333333333333 : 7.46079752604167 : JumpEnd); (5.57291666666667 : 7.46079752604167 : JumpStart); (5.73958333333333 : 7.46079752604167 : JumpEnd); (6.5 : 7.46079752604167)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/MILITARE/MILITARE_VOLO" />
+      <nodes>
+        <classShapeMoniker Id="10d3d3ca-56d2-4c39-b630-26ecc7b6e9b9" />
+        <classShapeMoniker Id="67e7959b-b69f-4f80-8710-d1d7ef8e2ba7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 7.92470540364583); (1.75 : 11.0104484049479); (3.16666666666667 : 11.0104484049479 : JumpStart); (3.33333333333333 : 11.0104484049479 : JumpEnd); (3.5 : 11.0104484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/MILITARE/MILITARE_IDONEITA_MEDICA" />
+      <nodes>
+        <classShapeMoniker Id="10d3d3ca-56d2-4c39-b630-26ecc7b6e9b9" />
+        <classShapeMoniker Id="0faeacb3-cf28-4383-9ea6-08de859320a1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.00153746153846); (3.125 : 4.62653746153846); (3.125 : 3.94595211393229); (3.5 : 3.94595211393229)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/MILITARE/MILITARE_MANUTENZIONE" />
+      <nodes>
+        <classShapeMoniker Id="10d3d3ca-56d2-4c39-b630-26ecc7b6e9b9" />
+        <classShapeMoniker Id="eee38def-6e04-4cdd-b9a7-e09738405e3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.65625 : 13.375); (5.65625 : 5.53125); (6.5 : 5.53125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/MISSIONE/MISSIONE_VOLO" />
+      <nodes>
+        <classShapeMoniker Id="075f0c1d-3a11-4f2e-b3da-16813cfc4617" />
+        <classShapeMoniker Id="67e7959b-b69f-4f80-8710-d1d7ef8e2ba7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 14.4719962565104); (3.16666666666667 : 14.4719962565104 : JumpStart); (3.33333333333333 : 14.4719962565104 : JumpEnd); (3.75 : 14.4719962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/AEROPORTO/AEROPORTO_MISSIONE" />
+      <nodes>
+        <classShapeMoniker Id="53f98db2-f5e3-4b0d-b988-0ee367c47260" />
+        <classShapeMoniker Id="075f0c1d-3a11-4f2e-b3da-16813cfc4617" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 14.1109981282552); (3.16666666666667 : 14.1109981282552 : JumpStart); (3.33333333333333 : 14.1109981282552 : JumpEnd); (3.75 : 14.1109981282552)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/AEROPORTO/AEROPORTO_MISSIONE1" />
+      <nodes>
+        <classShapeMoniker Id="53f98db2-f5e3-4b0d-b988-0ee367c47260" />
+        <classShapeMoniker Id="075f0c1d-3a11-4f2e-b3da-16813cfc4617" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.44314697265625); (3.16666666666667 : 6.44314697265625 : JumpStart); (3.33333333333333 : 6.44314697265625 : JumpEnd); (3.5 : 6.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/MILITARE/MILITARE_PATENTE" />
+      <nodes>
+        <classShapeMoniker Id="10d3d3ca-56d2-4c39-b630-26ecc7b6e9b9" />
+        <classShapeMoniker Id="175b8fe3-1400-478f-b2de-18ee73d3d6fd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.19007023898237); (3.1875 : 4.62757023898237); (3.1875 : 6.06532148632813); (3.5 : 6.06532148632813)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesAMDataContext/AEROMOBILE/AEROMOBILE_PATENTE" />
+      <nodes>
+        <classShapeMoniker Id="d71ab258-ff69-4602-a317-af229c059438" />
+        <classShapeMoniker Id="175b8fe3-1400-478f-b2de-18ee73d3d6fd" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
