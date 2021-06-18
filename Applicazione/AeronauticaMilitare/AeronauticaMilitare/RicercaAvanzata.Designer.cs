@@ -31,14 +31,17 @@ namespace AeronauticaMilitare
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RicercaAvanzata));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbOredivolo = new System.Windows.Forms.RadioButton();
+            this.cbAeromobili = new System.Windows.Forms.ComboBox();
+            this.cbMilitari = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbOredivolosuvelivolo = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cbMilitari = new System.Windows.Forms.ComboBox();
-            this.cbAeromobili = new System.Windows.Forms.ComboBox();
+            this.rbOredivolo = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCognome = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.lblRisultatoOreVolo = new System.Windows.Forms.Label();
+            this.lblVelivolo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -57,18 +60,34 @@ namespace AeronauticaMilitare
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ore di volo";
             // 
-            // rbOredivolo
+            // cbAeromobili
             // 
-            this.rbOredivolo.AutoSize = true;
-            this.rbOredivolo.Checked = true;
-            this.rbOredivolo.Location = new System.Drawing.Point(6, 19);
-            this.rbOredivolo.Name = "rbOredivolo";
-            this.rbOredivolo.Size = new System.Drawing.Size(76, 17);
-            this.rbOredivolo.TabIndex = 0;
-            this.rbOredivolo.TabStop = true;
-            this.rbOredivolo.Text = "Ore di volo";
-            this.rbOredivolo.UseVisualStyleBackColor = true;
-            this.rbOredivolo.CheckedChanged += new System.EventHandler(this.rbOredivolo_CheckedChanged);
+            this.cbAeromobili.Enabled = false;
+            this.cbAeromobili.FormattingEnabled = true;
+            this.cbAeromobili.Location = new System.Drawing.Point(12, 46);
+            this.cbAeromobili.Name = "cbAeromobili";
+            this.cbAeromobili.Size = new System.Drawing.Size(317, 21);
+            this.cbAeromobili.TabIndex = 3;
+            this.cbAeromobili.SelectedIndexChanged += new System.EventHandler(this.cbAeromobili_SelectedIndexChanged);
+            // 
+            // cbMilitari
+            // 
+            this.cbMilitari.FormattingEnabled = true;
+            this.cbMilitari.Location = new System.Drawing.Point(12, 19);
+            this.cbMilitari.Name = "cbMilitari";
+            this.cbMilitari.Size = new System.Drawing.Size(317, 21);
+            this.cbMilitari.TabIndex = 2;
+            this.cbMilitari.SelectedIndexChanged += new System.EventHandler(this.cbMilitari_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 149);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(323, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Cerca";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.contaOreVolo_Click);
             // 
             // groupBox2
             // 
@@ -91,37 +110,25 @@ namespace AeronauticaMilitare
             this.rbOredivolosuvelivolo.Text = "Ore di volo su un velivolo";
             this.rbOredivolosuvelivolo.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // rbOredivolo
             // 
-            this.button1.Location = new System.Drawing.Point(6, 149);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(323, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Cerca";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // cbMilitari
-            // 
-            this.cbMilitari.FormattingEnabled = true;
-            this.cbMilitari.Location = new System.Drawing.Point(12, 19);
-            this.cbMilitari.Name = "cbMilitari";
-            this.cbMilitari.Size = new System.Drawing.Size(317, 21);
-            this.cbMilitari.TabIndex = 2;
-            this.cbMilitari.SelectedIndexChanged += new System.EventHandler(this.cbMilitari_SelectedIndexChanged);
-            // 
-            // cbAeromobili
-            // 
-            this.cbAeromobili.Enabled = false;
-            this.cbAeromobili.FormattingEnabled = true;
-            this.cbAeromobili.Location = new System.Drawing.Point(12, 46);
-            this.cbAeromobili.Name = "cbAeromobili";
-            this.cbAeromobili.Size = new System.Drawing.Size(317, 21);
-            this.cbAeromobili.TabIndex = 3;
-            this.cbAeromobili.SelectedIndexChanged += new System.EventHandler(this.cbAeromobili_SelectedIndexChanged);
+            this.rbOredivolo.AutoSize = true;
+            this.rbOredivolo.Checked = true;
+            this.rbOredivolo.Location = new System.Drawing.Point(6, 19);
+            this.rbOredivolo.Name = "rbOredivolo";
+            this.rbOredivolo.Size = new System.Drawing.Size(76, 17);
+            this.rbOredivolo.TabIndex = 0;
+            this.rbOredivolo.TabStop = true;
+            this.rbOredivolo.Text = "Ore di volo";
+            this.rbOredivolo.UseVisualStyleBackColor = true;
+            this.rbOredivolo.CheckedChanged += new System.EventHandler(this.rbOredivolo_CheckedChanged);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.lblVelivolo);
+            this.groupBox3.Controls.Add(this.lblCognome);
+            this.groupBox3.Controls.Add(this.lblNome);
+            this.groupBox3.Controls.Add(this.lblRisultatoOreVolo);
             this.groupBox3.Location = new System.Drawing.Point(353, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(435, 182);
@@ -129,15 +136,46 @@ namespace AeronauticaMilitare
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Risultato";
             // 
-            // label1
+            // lblCognome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(206, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "...";
+            this.lblCognome.AutoSize = true;
+            this.lblCognome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCognome.Location = new System.Drawing.Point(6, 46);
+            this.lblCognome.Name = "lblCognome";
+            this.lblCognome.Size = new System.Drawing.Size(85, 20);
+            this.lblCognome.TabIndex = 2;
+            this.lblCognome.Text = "Cognome";
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.Location = new System.Drawing.Point(6, 20);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(55, 20);
+            this.lblNome.TabIndex = 1;
+            this.lblNome.Text = "Nome";
+            // 
+            // lblRisultatoOreVolo
+            // 
+            this.lblRisultatoOreVolo.AutoSize = true;
+            this.lblRisultatoOreVolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRisultatoOreVolo.Location = new System.Drawing.Point(206, 86);
+            this.lblRisultatoOreVolo.Name = "lblRisultatoOreVolo";
+            this.lblRisultatoOreVolo.Size = new System.Drawing.Size(28, 24);
+            this.lblRisultatoOreVolo.TabIndex = 0;
+            this.lblRisultatoOreVolo.Text = "...";
+            // 
+            // lblVelivolo
+            // 
+            this.lblVelivolo.AutoSize = true;
+            this.lblVelivolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVelivolo.Location = new System.Drawing.Point(6, 149);
+            this.lblVelivolo.Name = "lblVelivolo";
+            this.lblVelivolo.Size = new System.Drawing.Size(71, 20);
+            this.lblVelivolo.TabIndex = 3;
+            this.lblVelivolo.Text = "Velivolo";
+            this.lblVelivolo.Visible = false;
             // 
             // RicercaAvanzata
             // 
@@ -170,6 +208,9 @@ namespace AeronauticaMilitare
         private System.Windows.Forms.RadioButton rbOredivolosuvelivolo;
         private System.Windows.Forms.RadioButton rbOredivolo;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblRisultatoOreVolo;
+        private System.Windows.Forms.Label lblCognome;
+        private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.Label lblVelivolo;
     }
 }

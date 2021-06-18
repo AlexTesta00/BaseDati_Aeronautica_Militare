@@ -34,6 +34,7 @@ namespace AeronauticaMilitare
             this.tabMilitare = new System.Windows.Forms.TabPage();
             this.GVMilitare = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAvanzata = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rbTutto = new System.Windows.Forms.RadioButton();
             this.rbPiloti = new System.Windows.Forms.RadioButton();
@@ -60,13 +61,21 @@ namespace AeronauticaMilitare
             this.tabMissione = new System.Windows.Forms.TabPage();
             this.tabAeroporto = new System.Windows.Forms.TabPage();
             this.tabVolo = new System.Windows.Forms.TabPage();
-            this.btnAvanzata = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.PatenteView = new System.Windows.Forms.DataGridView();
+            this.cbPatAero = new System.Windows.Forms.ComboBox();
+            this.cbPatMil = new System.Windows.Forms.ComboBox();
+            this.btnInserisciPatente = new System.Windows.Forms.Button();
+            this.dateTimePatente = new System.Windows.Forms.DateTimePicker();
             this.tab.SuspendLayout();
             this.tabMilitare.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVMilitare)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPatente.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatenteView)).BeginInit();
             this.SuspendLayout();
             // 
             // tab
@@ -119,6 +128,17 @@ namespace AeronauticaMilitare
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visualizza";
+            // 
+            // btnAvanzata
+            // 
+            this.btnAvanzata.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnAvanzata.Location = new System.Drawing.Point(213, 260);
+            this.btnAvanzata.Name = "btnAvanzata";
+            this.btnAvanzata.Size = new System.Drawing.Size(206, 23);
+            this.btnAvanzata.TabIndex = 5;
+            this.btnAvanzata.Text = "Ricerca Avanzata...";
+            this.btnAvanzata.UseVisualStyleBackColor = true;
+            this.btnAvanzata.Click += new System.EventHandler(this.btnAvanzata_Click);
             // 
             // groupBox3
             // 
@@ -357,6 +377,8 @@ namespace AeronauticaMilitare
             // 
             // tabPatente
             // 
+            this.tabPatente.Controls.Add(this.PatenteView);
+            this.tabPatente.Controls.Add(this.groupBox4);
             this.tabPatente.Location = new System.Drawing.Point(4, 22);
             this.tabPatente.Name = "tabPatente";
             this.tabPatente.Padding = new System.Windows.Forms.Padding(3);
@@ -435,16 +457,62 @@ namespace AeronauticaMilitare
             this.tabVolo.Text = "Volo";
             this.tabVolo.UseVisualStyleBackColor = true;
             // 
-            // btnAvanzata
+            // groupBox4
             // 
-            this.btnAvanzata.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnAvanzata.Location = new System.Drawing.Point(213, 260);
-            this.btnAvanzata.Name = "btnAvanzata";
-            this.btnAvanzata.Size = new System.Drawing.Size(206, 23);
-            this.btnAvanzata.TabIndex = 5;
-            this.btnAvanzata.Text = "Ricerca Avanzata...";
-            this.btnAvanzata.UseVisualStyleBackColor = true;
-            this.btnAvanzata.Click += new System.EventHandler(this.btnAvanzata_Click);
+            this.groupBox4.Controls.Add(this.dateTimePatente);
+            this.groupBox4.Controls.Add(this.btnInserisciPatente);
+            this.groupBox4.Controls.Add(this.cbPatMil);
+            this.groupBox4.Controls.Add(this.cbPatAero);
+            this.groupBox4.Location = new System.Drawing.Point(7, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(200, 594);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Inserimento";
+            // 
+            // PatenteView
+            // 
+            this.PatenteView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PatenteView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PatenteView.Location = new System.Drawing.Point(213, 6);
+            this.PatenteView.Name = "PatenteView";
+            this.PatenteView.Size = new System.Drawing.Size(1161, 594);
+            this.PatenteView.TabIndex = 1;
+            // 
+            // cbPatAero
+            // 
+            this.cbPatAero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbPatAero.FormattingEnabled = true;
+            this.cbPatAero.Location = new System.Drawing.Point(6, 19);
+            this.cbPatAero.Name = "cbPatAero";
+            this.cbPatAero.Size = new System.Drawing.Size(188, 21);
+            this.cbPatAero.TabIndex = 0;
+            // 
+            // cbPatMil
+            // 
+            this.cbPatMil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbPatMil.FormattingEnabled = true;
+            this.cbPatMil.Location = new System.Drawing.Point(6, 46);
+            this.cbPatMil.Name = "cbPatMil";
+            this.cbPatMil.Size = new System.Drawing.Size(188, 21);
+            this.cbPatMil.TabIndex = 1;
+            // 
+            // btnInserisciPatente
+            // 
+            this.btnInserisciPatente.Location = new System.Drawing.Point(6, 565);
+            this.btnInserisciPatente.Name = "btnInserisciPatente";
+            this.btnInserisciPatente.Size = new System.Drawing.Size(188, 23);
+            this.btnInserisciPatente.TabIndex = 2;
+            this.btnInserisciPatente.Text = "Inserisci";
+            this.btnInserisciPatente.UseVisualStyleBackColor = true;
+            this.btnInserisciPatente.Click += new System.EventHandler(this.btnInserisciPatente_Click);
+            // 
+            // dateTimePatente
+            // 
+            this.dateTimePatente.Location = new System.Drawing.Point(6, 73);
+            this.dateTimePatente.Name = "dateTimePatente";
+            this.dateTimePatente.Size = new System.Drawing.Size(188, 20);
+            this.dateTimePatente.TabIndex = 3;
             // 
             // Main
             // 
@@ -468,6 +536,9 @@ namespace AeronauticaMilitare
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPatente.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PatenteView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -505,6 +576,12 @@ namespace AeronauticaMilitare
         private System.Windows.Forms.TextBox tbStormo;
         private System.Windows.Forms.Button btnInserisciMilitare;
         private System.Windows.Forms.Button btnAvanzata;
+        private System.Windows.Forms.DataGridView PatenteView;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DateTimePicker dateTimePatente;
+        private System.Windows.Forms.Button btnInserisciPatente;
+        private System.Windows.Forms.ComboBox cbPatMil;
+        private System.Windows.Forms.ComboBox cbPatAero;
     }
 }
 

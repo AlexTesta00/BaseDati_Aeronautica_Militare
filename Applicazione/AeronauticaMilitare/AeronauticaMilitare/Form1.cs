@@ -27,6 +27,23 @@ namespace AeronauticaMilitare
             cbGrado.SelectedIndex = 5;
             cbRuolo.SelectedIndex = 0;
             cbStatoFamiliare.SelectedIndex = 0;
+
+            //Combo Box Patente
+            var velivolo = from a in db.AEROMOBILE
+                           select a.CodiceAeromobile;
+            var allItem = velivolo.Select(x => x.ToString()).ToArray();
+            for (int i = 0; i < allItem.Length; i++)
+            {
+                cbPatAero.Items.Add(allItem[i]);
+            }
+
+            var data = from m in db.MILITARE
+                       select m.MatricolaMilitare;
+            var item = data.Select(x => x.ToString()).ToArray();
+            for (int i = 0; i < item.Length; i++)
+            {
+                cbPatMil.Items.Add(item[i]);
+            }
         }
 
         private void bMilitariSelect_Click(object sender, EventArgs e)
@@ -249,6 +266,43 @@ namespace AeronauticaMilitare
         {
             RicercaAvanzata rc = new RicercaAvanzata();
             rc.Show();
+        }
+
+        private void btnInserisciPatente_Click(object sender, EventArgs e)
+        {
+            if (cbPatMil.Text == "" || cbPatAero.Text == "")
+            {
+                MessageBox.Show("Campi Vuoti", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (dateTimePatente.Value > DateTime.Now)
+            {
+                MessageBox.Show("Non puoi viaggiare nel futuro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
+            {
+                PATENTE newPat = new PATENTE()
+                {
+                    CodiceAeromobile = cbPatAero.Text,
+                    MatricolaMilitare = cbPatMil.Text,
+                    DataDiRilascio = dateTimePatente.Value
+                };
+
+                this.db.PATENTE.InsertOnSubmit(newPat);
+
+                try
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("Patente inserita");
+                    var data = from P in db.PATENTE
+                               select P;
+                    PatenteView.DataSource = data;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Errore nel database: " + ex);
+                }
+            }
         }
     }
 }
