@@ -10,21 +10,16 @@ using System.Windows.Forms;
 
 namespace AeronauticaMilitare
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         private DataClassesAMDataContext db;
-        public Form1()
+        private IdGenerator idGenerator;
+        public Main()
         {
             InitializeComponent();
             this.db = new DataClassesAMDataContext();
             this.initComboBox();
-            /*
-             *             DataClassesAMDataContext db = new DataClassesAMDataContext();
-            var data = from m in db.MILITARE
-                       select m;
-
-            dataGridView1.DataSource = data;
-             */
+            this.idGenerator = new IdGenerator();
         }
 
         private void initComboBox() 
@@ -62,7 +57,7 @@ namespace AeronauticaMilitare
         {
             if (tbMatricola.Text == "Matricola")
             {
-                tbMatricola.Text = "";
+                tbMatricola.Text = this.idGenerator.generateIdCode(20);
                 tbMatricola.ForeColor = Color.Black;
             }
         }
@@ -190,14 +185,70 @@ namespace AeronauticaMilitare
             {
                 if (cbRuolo.Text == "Specialista")
                 {
+                    MILITARE newMilitare = new MILITARE()
+                    {
+                        Nome = tbNome.Text,
+                        Cognome = tbCognome.Text,
+                        MatricolaMilitare = tbMatricola.Text,
+                        Grado = cbGrado.Text,
+                        Email = tbEmail.Text,
+                        Telefono = tbTelefono.Text,
+                        CodiceFiscale = tbCodiceFiscale.Text,
+                        StatoFamiliare = cbStatoFamiliare.Text,
+                        Tipo = cbRuolo.Text,
+                        Stormo = null,
+                        GruppoDiVolo = null
+                    };
 
+                    this.db.MILITARE.InsertOnSubmit(newMilitare);
+
+                    try
+                    {
+                        db.SubmitChanges();
+                        MessageBox.Show("Benvenuto, " + cbGrado.Text + "." + tbNome.Text + " " + tbCognome.Text);
+                        Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Errore nel database: " + ex);
+                    }
                 }
                 else 
                 {
+                    MILITARE newMilitare = new MILITARE()
+                    {
+                        Nome = tbNome.Text,
+                        Cognome = tbCognome.Text,
+                        MatricolaMilitare = tbMatricola.Text,
+                        Grado = cbGrado.Text,
+                        Email = tbEmail.Text,
+                        Telefono = tbTelefono.Text,
+                        CodiceFiscale = tbCodiceFiscale.Text,
+                        StatoFamiliare = cbStatoFamiliare.Text,
+                        Tipo = cbRuolo.Text,
+                        Stormo = Int32.Parse(tbStormo.Text),
+                        GruppoDiVolo = Int32.Parse(tbGruppoDiVolo.Text)
+                    };
 
+                    this.db.MILITARE.InsertOnSubmit(newMilitare);
+
+                    try
+                    {
+                        db.SubmitChanges();
+                        MessageBox.Show("Benvenuto, " + cbGrado.Text + "." + tbNome.Text + " " + tbCognome.Text);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Errore nel database: " + ex);
+                    }
                 }
-                MessageBox.Show("Benvenuto, " + cbGrado.Text + "." + tbNome.Text + " " + tbCognome.Text);
             }
+        }
+
+        private void btnAvanzata_Click(object sender, EventArgs e)
+        {
+            RicercaAvanzata rc = new RicercaAvanzata();
+            rc.Show();
         }
     }
 }
