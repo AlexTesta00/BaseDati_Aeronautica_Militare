@@ -29,14 +29,18 @@ namespace AeronauticaMilitare
             cbStatoFamiliare.SelectedIndex = 0;
             cbFunzionePrimaria.SelectedIndex = 0;
             cbNumeroMembri.SelectedIndex = 0;
+            cbStato.SelectedIndex = 0;
+            cbStatoMentale.SelectedIndex = 0;
+            cbCondizioniGenerali.SelectedIndex = 0;
 
-            //Combo Box Patente
             var velivolo = from a in db.AEROMOBILE
                            select a.CodiceAeromobile;
             var allItem = velivolo.Select(x => x.ToString()).ToArray();
             for (int i = 0; i < allItem.Length; i++)
             {
                 cbPatAero.Items.Add(allItem[i]);
+                cbCodAereoArm.Items.Add(allItem[i]);
+                cbCodAereoMan.Items.Add(allItem[i]);
             }
 
             var data = from m in db.MILITARE
@@ -46,6 +50,26 @@ namespace AeronauticaMilitare
             {
                 cbPatMil.Items.Add(item[i]);
             }
+
+            var specialista = from m in db.MILITARE
+                              where m.Tipo == "Specialista"
+                              select m.MatricolaMilitare;
+            var itemSpecialista = specialista.Select(x => x.ToString()).ToArray();
+            for (int i = 0; i < itemSpecialista.Length; i++)
+            {
+                cbCodSpecMan.Items.Add(itemSpecialista[i]);
+            }
+
+            var pilota = from m in db.MILITARE
+                              where m.Tipo == "Specialista"
+                              select m.MatricolaMilitare;
+            var itemPilota = pilota.Select(x => x.ToString()).ToArray();
+            for (int i = 0; i < itemPilota.Length; i++)
+            {
+                cbCodPilotaIdon.Items.Add(itemPilota[i]);
+            }
+
+
         }
 
         private void bMilitariSelect_Click(object sender, EventArgs e)
@@ -363,6 +387,155 @@ namespace AeronauticaMilitare
             var data = from A in db.AEROMOBILE
                        select A;
             AereoView.DataSource = data;
+        }
+
+        private void RiempiCodice(object sender, EventArgs e)
+        {
+            tbCodArmamento.Text = this.idGenerator.generateIdCode(10);
+        }
+
+        private void btnInserisciArmamento_Click(object sender, EventArgs e)
+        {
+            if (cbCodAereoArm.Text == "" || tbCodArmamento.Text == "" || tbNumeroMissili.Text == "" || tbNumeroMunizioni.Text == "")
+            {
+                MessageBox.Show("Campi vuoti", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
+            {
+                ARMAMENTO arm = new ARMAMENTO()
+                {
+                    CodiceArmamento = tbCodArmamento.Text,
+                    CodiceAeromobile = cbCodAereoArm.Text,
+                    NumeroMissili = int.Parse(tbNumeroMissili.Text),
+                    NumeroMunizioni = int.Parse(tbNumeroMunizioni.Text)
+                };
+
+                this.db.ARMAMENTO.InsertOnSubmit(arm);
+
+                try
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("Armamento inserito");
+                    var data = from A in db.ARMAMENTO
+                               select A;
+                    ArmamentoView.DataSource = data;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Errore nel database: " + ex);
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var data = from A in db.ARMAMENTO
+                       select A;
+            ArmamentoView.DataSource = data;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (cbCodAereoMan.Text == "" || cbCodSpecMan.Text == "")
+            {
+                MessageBox.Show("Campi vuoti", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
+            {
+                MANUTENZIONE man = new MANUTENZIONE()
+                {
+                    CodiceAeromobile = cbCodAereoMan.Text,
+                    MatricolaMilitare = cbCodSpecMan.Text,
+                    Data = dtMan.Value,
+                    StatoDelVelivolo = this.stato_velivolo()
+                };
+
+                this.db.MANUTENZIONE.InsertOnSubmit(man);
+
+                try
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("Manutenzione inserita");
+                    var data = from M in db.MANUTENZIONE
+                               select M;
+                    ManView.DataSource = data;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Errore nel database: " + ex);
+                }
+            }
+        }
+
+        private bool stato_velivolo() 
+        {
+            return (cbStato.Text == "Funzionante") ? true : false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var data = from M in db.MANUTENZIONE
+                       select M;
+            ManView.DataSource = data;
+        }
+
+        private void Riempimento(object sender, EventArgs e)
+        {
+            tbCodIdoneità.Text = this.idGenerator.generateIdCode(10);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (tbCodIdoneità.Text == "" || cbCodPilotaIdon.Text == "")
+            {
+                MessageBox.Show("Campi vuoti", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
+            {
+                IDONEITA_MEDICA iDONEITA = new IDONEITA_MEDICA()
+                {
+                    CodiceIdoneità = tbCodIdoneità.Text,
+                    MatricolaMilitare = cbCodPilotaIdon.Text,
+                    StatoMentale = this.statoMentale(),
+                    CondizioniGenerali = this.condizioniGenerali(),
+                    DataDiScadenza = dtId.Value
+                };
+
+                this.db.IDONEITA_MEDICA.InsertOnSubmit(iDONEITA);
+
+                try
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("Idoneità inserita");
+                    var data = from I in db.IDONEITA_MEDICA
+                               select I;
+                    IdonView.DataSource = data;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Errore nel database: " + ex);
+                }
+            }
+        }
+
+        private bool statoMentale() 
+        {
+            return (cbStatoMentale.Text == "Ottimo") ? true : false;
+        }
+
+        private bool condizioniGenerali() 
+        {
+            return (cbCondizioniGenerali.Text == "Ottimo") ? true : false;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var data = from I in db.IDONEITA_MEDICA
+                       select I;
+            IdonView.DataSource = data;
         }
     }
 }

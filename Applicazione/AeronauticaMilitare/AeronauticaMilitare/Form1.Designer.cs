@@ -100,6 +100,45 @@ namespace AeronauticaMilitare
             this.cbNumeroMembri = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnVisualizzaAereo = new System.Windows.Forms.Button();
+            this.ArmamentoView = new System.Windows.Forms.DataGridView();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btnInserisciArmamento = new System.Windows.Forms.Button();
+            this.cbCodAereoArm = new System.Windows.Forms.ComboBox();
+            this.tbCodArmamento = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tbNumeroMissili = new System.Windows.Forms.TextBox();
+            this.tbNumeroMunizioni = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.ManView = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.cbCodAereoMan = new System.Windows.Forms.ComboBox();
+            this.cbCodSpecMan = new System.Windows.Forms.ComboBox();
+            this.dtMan = new System.Windows.Forms.DateTimePicker();
+            this.cbStato = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.IdonView = new System.Windows.Forms.DataGridView();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.tbCodIdoneità = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.cbStatoMentale = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.cbCodPilotaIdon = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.cbCondizioniGenerali = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.dtId = new System.Windows.Forms.DateTimePicker();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tab.SuspendLayout();
             this.tabMilitare.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVMilitare)).BeginInit();
@@ -110,9 +149,18 @@ namespace AeronauticaMilitare
             ((System.ComponentModel.ISupportInitialize)(this.PatenteView)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.tabVelivoli.SuspendLayout();
+            this.tabArmemento.SuspendLayout();
+            this.tabManutenzione.SuspendLayout();
+            this.tabMedica.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AereoView)).BeginInit();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ArmamentoView)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ManView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdonView)).BeginInit();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab
@@ -126,6 +174,7 @@ namespace AeronauticaMilitare
             this.tab.Controls.Add(this.tabMissione);
             this.tab.Controls.Add(this.tabAeroporto);
             this.tab.Controls.Add(this.tabVolo);
+            this.tab.Controls.Add(this.tabPage1);
             this.tab.Location = new System.Drawing.Point(1, 0);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
@@ -452,6 +501,7 @@ namespace AeronauticaMilitare
             this.dateTimePatente.Name = "dateTimePatente";
             this.dateTimePatente.Size = new System.Drawing.Size(188, 20);
             this.dateTimePatente.TabIndex = 3;
+            this.dateTimePatente.Value = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
             // 
             // btnInserisciPatente
             // 
@@ -495,6 +545,8 @@ namespace AeronauticaMilitare
             // 
             // tabArmemento
             // 
+            this.tabArmemento.Controls.Add(this.groupBox7);
+            this.tabArmemento.Controls.Add(this.ArmamentoView);
             this.tabArmemento.Location = new System.Drawing.Point(4, 22);
             this.tabArmemento.Name = "tabArmemento";
             this.tabArmemento.Padding = new System.Windows.Forms.Padding(3);
@@ -505,6 +557,8 @@ namespace AeronauticaMilitare
             // 
             // tabManutenzione
             // 
+            this.tabManutenzione.Controls.Add(this.ManView);
+            this.tabManutenzione.Controls.Add(this.groupBox8);
             this.tabManutenzione.Location = new System.Drawing.Point(4, 22);
             this.tabManutenzione.Name = "tabManutenzione";
             this.tabManutenzione.Padding = new System.Windows.Forms.Padding(3);
@@ -515,6 +569,8 @@ namespace AeronauticaMilitare
             // 
             // tabMedica
             // 
+            this.tabMedica.Controls.Add(this.groupBox9);
+            this.tabMedica.Controls.Add(this.IdonView);
             this.tabMedica.Location = new System.Drawing.Point(4, 22);
             this.tabMedica.Name = "tabMedica";
             this.tabMedica.Padding = new System.Windows.Forms.Padding(3);
@@ -645,6 +701,7 @@ namespace AeronauticaMilitare
             // tbCostruttore
             // 
             this.tbCostruttore.Location = new System.Drawing.Point(6, 133);
+            this.tbCostruttore.MaxLength = 10;
             this.tbCostruttore.Name = "tbCostruttore";
             this.tbCostruttore.Size = new System.Drawing.Size(178, 20);
             this.tbCostruttore.TabIndex = 6;
@@ -684,6 +741,7 @@ namespace AeronauticaMilitare
             // tbPistaAtt
             // 
             this.tbPistaAtt.Location = new System.Drawing.Point(193, 175);
+            this.tbPistaAtt.MaxLength = 10;
             this.tbPistaAtt.Name = "tbPistaAtt";
             this.tbPistaAtt.Size = new System.Drawing.Size(178, 20);
             this.tbPistaAtt.TabIndex = 12;
@@ -909,6 +967,410 @@ namespace AeronauticaMilitare
             this.btnVisualizzaAereo.UseVisualStyleBackColor = true;
             this.btnVisualizzaAereo.Click += new System.EventHandler(this.btnVisualizzaAereo_Click);
             // 
+            // ArmamentoView
+            // 
+            this.ArmamentoView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ArmamentoView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ArmamentoView.Location = new System.Drawing.Point(282, 3);
+            this.ArmamentoView.Name = "ArmamentoView";
+            this.ArmamentoView.Size = new System.Drawing.Size(1092, 597);
+            this.ArmamentoView.TabIndex = 0;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.button1);
+            this.groupBox7.Controls.Add(this.tbNumeroMunizioni);
+            this.groupBox7.Controls.Add(this.tbNumeroMissili);
+            this.groupBox7.Controls.Add(this.label18);
+            this.groupBox7.Controls.Add(this.label17);
+            this.groupBox7.Controls.Add(this.label16);
+            this.groupBox7.Controls.Add(this.label15);
+            this.groupBox7.Controls.Add(this.tbCodArmamento);
+            this.groupBox7.Controls.Add(this.cbCodAereoArm);
+            this.groupBox7.Controls.Add(this.btnInserisciArmamento);
+            this.groupBox7.Location = new System.Drawing.Point(7, 6);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(269, 594);
+            this.groupBox7.TabIndex = 1;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Inserimento";
+            // 
+            // btnInserisciArmamento
+            // 
+            this.btnInserisciArmamento.Location = new System.Drawing.Point(6, 565);
+            this.btnInserisciArmamento.Name = "btnInserisciArmamento";
+            this.btnInserisciArmamento.Size = new System.Drawing.Size(257, 23);
+            this.btnInserisciArmamento.TabIndex = 0;
+            this.btnInserisciArmamento.Text = "Inserisci Armamento";
+            this.btnInserisciArmamento.UseVisualStyleBackColor = true;
+            this.btnInserisciArmamento.Click += new System.EventHandler(this.btnInserisciArmamento_Click);
+            // 
+            // cbCodAereoArm
+            // 
+            this.cbCodAereoArm.FormattingEnabled = true;
+            this.cbCodAereoArm.Location = new System.Drawing.Point(9, 77);
+            this.cbCodAereoArm.Name = "cbCodAereoArm";
+            this.cbCodAereoArm.Size = new System.Drawing.Size(147, 21);
+            this.cbCodAereoArm.TabIndex = 1;
+            // 
+            // tbCodArmamento
+            // 
+            this.tbCodArmamento.Location = new System.Drawing.Point(9, 35);
+            this.tbCodArmamento.MaxLength = 10;
+            this.tbCodArmamento.Name = "tbCodArmamento";
+            this.tbCodArmamento.Size = new System.Drawing.Size(147, 20);
+            this.tbCodArmamento.TabIndex = 2;
+            this.tbCodArmamento.Click += new System.EventHandler(this.RiempiCodice);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(6, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(123, 16);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Codice Armamento";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(6, 58);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(124, 16);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Codice Aeromobile";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(6, 101);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(45, 16);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "Missili";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(104, 101);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(63, 16);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Munizioni";
+            // 
+            // tbNumeroMissili
+            // 
+            this.tbNumeroMissili.Location = new System.Drawing.Point(9, 120);
+            this.tbNumeroMissili.MaxLength = 4;
+            this.tbNumeroMissili.Name = "tbNumeroMissili";
+            this.tbNumeroMissili.Size = new System.Drawing.Size(89, 20);
+            this.tbNumeroMissili.TabIndex = 9;
+            // 
+            // tbNumeroMunizioni
+            // 
+            this.tbNumeroMunizioni.Location = new System.Drawing.Point(104, 120);
+            this.tbNumeroMunizioni.MaxLength = 4;
+            this.tbNumeroMunizioni.Name = "tbNumeroMunizioni";
+            this.tbNumeroMunizioni.Size = new System.Drawing.Size(89, 20);
+            this.tbNumeroMunizioni.TabIndex = 10;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 536);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(257, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Visualizza Tutto";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.label22);
+            this.groupBox8.Controls.Add(this.label21);
+            this.groupBox8.Controls.Add(this.label20);
+            this.groupBox8.Controls.Add(this.label19);
+            this.groupBox8.Controls.Add(this.cbStato);
+            this.groupBox8.Controls.Add(this.dtMan);
+            this.groupBox8.Controls.Add(this.cbCodSpecMan);
+            this.groupBox8.Controls.Add(this.cbCodAereoMan);
+            this.groupBox8.Controls.Add(this.button3);
+            this.groupBox8.Controls.Add(this.button2);
+            this.groupBox8.Location = new System.Drawing.Point(7, 6);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(275, 594);
+            this.groupBox8.TabIndex = 0;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Inserimento";
+            // 
+            // ManView
+            // 
+            this.ManView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ManView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ManView.Location = new System.Drawing.Point(288, 6);
+            this.ManView.Name = "ManView";
+            this.ManView.Size = new System.Drawing.Size(1092, 594);
+            this.ManView.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 565);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(263, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Inserisci";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 536);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(263, 23);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Visualizza tutto";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // cbCodAereoMan
+            // 
+            this.cbCodAereoMan.FormattingEnabled = true;
+            this.cbCodAereoMan.Location = new System.Drawing.Point(6, 35);
+            this.cbCodAereoMan.Name = "cbCodAereoMan";
+            this.cbCodAereoMan.Size = new System.Drawing.Size(263, 21);
+            this.cbCodAereoMan.TabIndex = 2;
+            // 
+            // cbCodSpecMan
+            // 
+            this.cbCodSpecMan.FormattingEnabled = true;
+            this.cbCodSpecMan.Location = new System.Drawing.Point(6, 78);
+            this.cbCodSpecMan.Name = "cbCodSpecMan";
+            this.cbCodSpecMan.Size = new System.Drawing.Size(263, 21);
+            this.cbCodSpecMan.TabIndex = 3;
+            // 
+            // dtMan
+            // 
+            this.dtMan.Location = new System.Drawing.Point(6, 121);
+            this.dtMan.MaxDate = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
+            this.dtMan.MinDate = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
+            this.dtMan.Name = "dtMan";
+            this.dtMan.Size = new System.Drawing.Size(263, 20);
+            this.dtMan.TabIndex = 4;
+            this.dtMan.Value = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
+            // 
+            // cbStato
+            // 
+            this.cbStato.FormattingEnabled = true;
+            this.cbStato.Items.AddRange(new object[] {
+            "Funzionante",
+            "Non_Funzionante"});
+            this.cbStato.Location = new System.Drawing.Point(6, 163);
+            this.cbStato.Name = "cbStato";
+            this.cbStato.Size = new System.Drawing.Size(263, 21);
+            this.cbStato.TabIndex = 5;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(3, 16);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(124, 16);
+            this.label19.TabIndex = 6;
+            this.label19.Text = "Codice Aeromobile";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(3, 59);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(128, 16);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "Codice Manutentore";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(3, 102);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(37, 16);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "Data";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(3, 144);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(39, 16);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "Stato";
+            // 
+            // IdonView
+            // 
+            this.IdonView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.IdonView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.IdonView.Location = new System.Drawing.Point(282, 6);
+            this.IdonView.Name = "IdonView";
+            this.IdonView.Size = new System.Drawing.Size(1098, 594);
+            this.IdonView.TabIndex = 0;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.button5);
+            this.groupBox9.Controls.Add(this.button4);
+            this.groupBox9.Controls.Add(this.dtId);
+            this.groupBox9.Controls.Add(this.label27);
+            this.groupBox9.Controls.Add(this.cbCondizioniGenerali);
+            this.groupBox9.Controls.Add(this.label26);
+            this.groupBox9.Controls.Add(this.cbCodPilotaIdon);
+            this.groupBox9.Controls.Add(this.label25);
+            this.groupBox9.Controls.Add(this.cbStatoMentale);
+            this.groupBox9.Controls.Add(this.label24);
+            this.groupBox9.Controls.Add(this.tbCodIdoneità);
+            this.groupBox9.Controls.Add(this.label23);
+            this.groupBox9.Location = new System.Drawing.Point(7, 6);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(269, 594);
+            this.groupBox9.TabIndex = 1;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Inserimento";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(6, 16);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(51, 16);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Codice";
+            // 
+            // tbCodIdoneità
+            // 
+            this.tbCodIdoneità.Location = new System.Drawing.Point(9, 35);
+            this.tbCodIdoneità.MaxLength = 10;
+            this.tbCodIdoneità.Name = "tbCodIdoneità";
+            this.tbCodIdoneità.Size = new System.Drawing.Size(254, 20);
+            this.tbCodIdoneità.TabIndex = 1;
+            this.tbCodIdoneità.Click += new System.EventHandler(this.Riempimento);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(6, 101);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(90, 16);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "Stato Mentale";
+            // 
+            // cbStatoMentale
+            // 
+            this.cbStatoMentale.FormattingEnabled = true;
+            this.cbStatoMentale.Items.AddRange(new object[] {
+            "Ottimo",
+            "Non Ottimo"});
+            this.cbStatoMentale.Location = new System.Drawing.Point(9, 120);
+            this.cbStatoMentale.Name = "cbStatoMentale";
+            this.cbStatoMentale.Size = new System.Drawing.Size(254, 21);
+            this.cbStatoMentale.TabIndex = 3;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(6, 58);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(88, 16);
+            this.label25.TabIndex = 4;
+            this.label25.Text = "Codice Pilota";
+            // 
+            // cbCodPilotaIdon
+            // 
+            this.cbCodPilotaIdon.FormattingEnabled = true;
+            this.cbCodPilotaIdon.Location = new System.Drawing.Point(9, 77);
+            this.cbCodPilotaIdon.Name = "cbCodPilotaIdon";
+            this.cbCodPilotaIdon.Size = new System.Drawing.Size(254, 21);
+            this.cbCodPilotaIdon.TabIndex = 5;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(6, 144);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(124, 16);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "Condizioni Generali";
+            // 
+            // cbCondizioniGenerali
+            // 
+            this.cbCondizioniGenerali.FormattingEnabled = true;
+            this.cbCondizioniGenerali.Items.AddRange(new object[] {
+            "Ottimo",
+            "Non Ottimo"});
+            this.cbCondizioniGenerali.Location = new System.Drawing.Point(9, 163);
+            this.cbCondizioniGenerali.Name = "cbCondizioniGenerali";
+            this.cbCondizioniGenerali.Size = new System.Drawing.Size(254, 21);
+            this.cbCondizioniGenerali.TabIndex = 7;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(6, 187);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(115, 16);
+            this.label27.TabIndex = 8;
+            this.label27.Text = "Data di Scadenza";
+            // 
+            // dtId
+            // 
+            this.dtId.Location = new System.Drawing.Point(9, 206);
+            this.dtId.MinDate = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
+            this.dtId.Name = "dtId";
+            this.dtId.Size = new System.Drawing.Size(254, 20);
+            this.dtId.TabIndex = 9;
+            this.dtId.Value = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(6, 565);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(257, 23);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Inserisci";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(6, 536);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(257, 23);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Visualizza Tutto";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1386, 609);
+            this.tabPage1.TabIndex = 9;
+            this.tabPage1.Text = "Statistiche";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -935,10 +1397,22 @@ namespace AeronauticaMilitare
             ((System.ComponentModel.ISupportInitialize)(this.PatenteView)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.tabVelivoli.ResumeLayout(false);
+            this.tabArmemento.ResumeLayout(false);
+            this.tabManutenzione.ResumeLayout(false);
+            this.tabMedica.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AereoView)).EndInit();
             this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ArmamentoView)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ManView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdonView)).EndInit();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1015,6 +1489,45 @@ namespace AeronauticaMilitare
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnVisualizzaAereo;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox tbCodArmamento;
+        private System.Windows.Forms.ComboBox cbCodAereoArm;
+        private System.Windows.Forms.Button btnInserisciArmamento;
+        private System.Windows.Forms.DataGridView ArmamentoView;
+        private System.Windows.Forms.TextBox tbNumeroMunizioni;
+        private System.Windows.Forms.TextBox tbNumeroMissili;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView ManView;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox cbStato;
+        private System.Windows.Forms.DateTimePicker dtMan;
+        private System.Windows.Forms.ComboBox cbCodSpecMan;
+        private System.Windows.Forms.ComboBox cbCodAereoMan;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView IdonView;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.ComboBox cbStatoMentale;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox tbCodIdoneità;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox cbCodPilotaIdon;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ComboBox cbCondizioniGenerali;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DateTimePicker dtId;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
 
