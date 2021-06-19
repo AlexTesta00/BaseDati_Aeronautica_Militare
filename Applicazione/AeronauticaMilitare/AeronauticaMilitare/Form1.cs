@@ -27,6 +27,8 @@ namespace AeronauticaMilitare
             cbGrado.SelectedIndex = 5;
             cbRuolo.SelectedIndex = 0;
             cbStatoFamiliare.SelectedIndex = 0;
+            cbFunzionePrimaria.SelectedIndex = 0;
+            cbNumeroMembri.SelectedIndex = 0;
 
             //Combo Box Patente
             var velivolo = from a in db.AEROMOBILE
@@ -303,6 +305,64 @@ namespace AeronauticaMilitare
                     MessageBox.Show("Errore nel database: " + ex);
                 }
             }
+        }
+
+        private void AutoComplete(object sender, EventArgs e)
+        {
+            tbCodiceAeromobile.Text = this.idGenerator.generateIdCode(10);
+        }
+
+        private void btnInserisciAereo_Click(object sender, EventArgs e)
+        {
+            if (tbCodiceAeromobile.Text == "" || tbNomerAeromobile.Text == "" || tbCostruttore.Text == "" ||
+                tbQuotaOperativa.Text == "" || tbVelocitàMax.Text == "" || tbAutonomia.Text == "" || tbSpintaMax.Text == "" ||
+                tbCapienzaSer.Text == "" || tbMotore.Text == "" || tbPeso.Text == "" || tbPistaAtt.Text == "" || tbDimesioni.Text == "")
+            {
+                MessageBox.Show("Campi vuoti", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
+            {
+                AEROMOBILE aereo = new AEROMOBILE()
+                {
+                    CodiceAeromobile = tbCodiceAeromobile.Text,
+                    Nome = tbNomerAeromobile.Text,
+                    Costruttore = tbCostruttore.Text,
+                    FunzionePrimaria = cbFunzionePrimaria.Text,
+                    QuotaOperativa = float.Parse(tbQuotaOperativa.Text),
+                    VelocitàMassima = float.Parse(tbVelocitàMax.Text),
+                    Autonomia = float.Parse(tbAutonomia.Text),
+                    SpintaMassima = float.Parse(tbSpintaMax.Text),
+                    CapienzaSerbatoio = float.Parse(tbCapienzaSer.Text),
+                    Motore = tbMotore.Text,
+                    Peso = float.Parse(tbPeso.Text),
+                    LunghezzaPistaDiAtterraggio = float.Parse(tbPistaAtt.Text),
+                    Dimensioni = tbDimesioni.Text,
+                    NumeroMembri = int.Parse(cbNumeroMembri.Text)
+                };
+
+                this.db.AEROMOBILE.InsertOnSubmit(aereo);
+
+                try
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("Velivolo inserito");
+                    var data = from A in db.AEROMOBILE
+                               select A;
+                    AereoView.DataSource = data;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Errore nel database: " + ex);
+                }
+            }
+        }
+
+        private void btnVisualizzaAereo_Click(object sender, EventArgs e)
+        {
+            var data = from A in db.AEROMOBILE
+                       select A;
+            AereoView.DataSource = data;
         }
     }
 }

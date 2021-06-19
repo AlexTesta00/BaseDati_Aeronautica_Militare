@@ -54,6 +54,12 @@ namespace AeronauticaMilitare
             this.tbNome = new System.Windows.Forms.TextBox();
             this.tbMatricola = new System.Windows.Forms.TextBox();
             this.tabPatente = new System.Windows.Forms.TabPage();
+            this.PatenteView = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dateTimePatente = new System.Windows.Forms.DateTimePicker();
+            this.btnInserisciPatente = new System.Windows.Forms.Button();
+            this.cbPatMil = new System.Windows.Forms.ComboBox();
+            this.cbPatAero = new System.Windows.Forms.ComboBox();
             this.tabVelivoli = new System.Windows.Forms.TabPage();
             this.tabArmemento = new System.Windows.Forms.TabPage();
             this.tabManutenzione = new System.Windows.Forms.TabPage();
@@ -61,12 +67,39 @@ namespace AeronauticaMilitare
             this.tabMissione = new System.Windows.Forms.TabPage();
             this.tabAeroporto = new System.Windows.Forms.TabPage();
             this.tabVolo = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.PatenteView = new System.Windows.Forms.DataGridView();
-            this.cbPatAero = new System.Windows.Forms.ComboBox();
-            this.cbPatMil = new System.Windows.Forms.ComboBox();
-            this.btnInserisciPatente = new System.Windows.Forms.Button();
-            this.dateTimePatente = new System.Windows.Forms.DateTimePicker();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.AereoView = new System.Windows.Forms.DataGridView();
+            this.tbCodiceAeromobile = new System.Windows.Forms.TextBox();
+            this.tbNomerAeromobile = new System.Windows.Forms.TextBox();
+            this.tbAutonomia = new System.Windows.Forms.TextBox();
+            this.tbCapienzaSer = new System.Windows.Forms.TextBox();
+            this.tbPeso = new System.Windows.Forms.TextBox();
+            this.tbCostruttore = new System.Windows.Forms.TextBox();
+            this.tbQuotaOperativa = new System.Windows.Forms.TextBox();
+            this.tbVelocitàMax = new System.Windows.Forms.TextBox();
+            this.tbSpintaMax = new System.Windows.Forms.TextBox();
+            this.tbMotore = new System.Windows.Forms.TextBox();
+            this.tbPistaAtt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbFunzionePrimaria = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbDimesioni = new System.Windows.Forms.RichTextBox();
+            this.btnInserisciAereo = new System.Windows.Forms.Button();
+            this.cbNumeroMembri = new System.Windows.Forms.ComboBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnVisualizzaAereo = new System.Windows.Forms.Button();
             this.tab.SuspendLayout();
             this.tabMilitare.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVMilitare)).BeginInit();
@@ -74,8 +107,12 @@ namespace AeronauticaMilitare
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPatente.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PatenteView)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.tabVelivoli.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AereoView)).BeginInit();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab
@@ -387,8 +424,67 @@ namespace AeronauticaMilitare
             this.tabPatente.Text = "Patente";
             this.tabPatente.UseVisualStyleBackColor = true;
             // 
+            // PatenteView
+            // 
+            this.PatenteView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PatenteView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PatenteView.Location = new System.Drawing.Point(213, 6);
+            this.PatenteView.Name = "PatenteView";
+            this.PatenteView.Size = new System.Drawing.Size(1161, 594);
+            this.PatenteView.TabIndex = 1;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dateTimePatente);
+            this.groupBox4.Controls.Add(this.btnInserisciPatente);
+            this.groupBox4.Controls.Add(this.cbPatMil);
+            this.groupBox4.Controls.Add(this.cbPatAero);
+            this.groupBox4.Location = new System.Drawing.Point(7, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(200, 594);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Inserimento";
+            // 
+            // dateTimePatente
+            // 
+            this.dateTimePatente.Location = new System.Drawing.Point(6, 73);
+            this.dateTimePatente.Name = "dateTimePatente";
+            this.dateTimePatente.Size = new System.Drawing.Size(188, 20);
+            this.dateTimePatente.TabIndex = 3;
+            // 
+            // btnInserisciPatente
+            // 
+            this.btnInserisciPatente.Location = new System.Drawing.Point(6, 565);
+            this.btnInserisciPatente.Name = "btnInserisciPatente";
+            this.btnInserisciPatente.Size = new System.Drawing.Size(188, 23);
+            this.btnInserisciPatente.TabIndex = 2;
+            this.btnInserisciPatente.Text = "Inserisci";
+            this.btnInserisciPatente.UseVisualStyleBackColor = true;
+            this.btnInserisciPatente.Click += new System.EventHandler(this.btnInserisciPatente_Click);
+            // 
+            // cbPatMil
+            // 
+            this.cbPatMil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbPatMil.FormattingEnabled = true;
+            this.cbPatMil.Location = new System.Drawing.Point(6, 46);
+            this.cbPatMil.Name = "cbPatMil";
+            this.cbPatMil.Size = new System.Drawing.Size(188, 21);
+            this.cbPatMil.TabIndex = 1;
+            // 
+            // cbPatAero
+            // 
+            this.cbPatAero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbPatAero.FormattingEnabled = true;
+            this.cbPatAero.Location = new System.Drawing.Point(6, 19);
+            this.cbPatAero.Name = "cbPatAero";
+            this.cbPatAero.Size = new System.Drawing.Size(188, 21);
+            this.cbPatAero.TabIndex = 0;
+            // 
             // tabVelivoli
             // 
+            this.tabVelivoli.Controls.Add(this.AereoView);
+            this.tabVelivoli.Controls.Add(this.groupBox5);
             this.tabVelivoli.Location = new System.Drawing.Point(4, 22);
             this.tabVelivoli.Name = "tabVelivoli";
             this.tabVelivoli.Padding = new System.Windows.Forms.Padding(3);
@@ -457,62 +553,361 @@ namespace AeronauticaMilitare
             this.tabVolo.Text = "Volo";
             this.tabVolo.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // groupBox5
             // 
-            this.groupBox4.Controls.Add(this.dateTimePatente);
-            this.groupBox4.Controls.Add(this.btnInserisciPatente);
-            this.groupBox4.Controls.Add(this.cbPatMil);
-            this.groupBox4.Controls.Add(this.cbPatAero);
-            this.groupBox4.Location = new System.Drawing.Point(7, 6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 594);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Inserimento";
+            this.groupBox5.Controls.Add(this.groupBox6);
+            this.groupBox5.Controls.Add(this.cbNumeroMembri);
+            this.groupBox5.Controls.Add(this.btnInserisciAereo);
+            this.groupBox5.Controls.Add(this.tbDimesioni);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.label8);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.cbFunzionePrimaria);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.tbPistaAtt);
+            this.groupBox5.Controls.Add(this.tbMotore);
+            this.groupBox5.Controls.Add(this.tbSpintaMax);
+            this.groupBox5.Controls.Add(this.tbVelocitàMax);
+            this.groupBox5.Controls.Add(this.tbQuotaOperativa);
+            this.groupBox5.Controls.Add(this.tbCostruttore);
+            this.groupBox5.Controls.Add(this.tbPeso);
+            this.groupBox5.Controls.Add(this.tbCapienzaSer);
+            this.groupBox5.Controls.Add(this.tbAutonomia);
+            this.groupBox5.Controls.Add(this.tbNomerAeromobile);
+            this.groupBox5.Controls.Add(this.tbCodiceAeromobile);
+            this.groupBox5.Location = new System.Drawing.Point(7, 6);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(389, 594);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Specifiche";
             // 
-            // PatenteView
+            // AereoView
             // 
-            this.PatenteView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PatenteView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PatenteView.Location = new System.Drawing.Point(213, 6);
-            this.PatenteView.Name = "PatenteView";
-            this.PatenteView.Size = new System.Drawing.Size(1161, 594);
-            this.PatenteView.TabIndex = 1;
+            this.AereoView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AereoView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AereoView.Location = new System.Drawing.Point(402, 9);
+            this.AereoView.Name = "AereoView";
+            this.AereoView.Size = new System.Drawing.Size(972, 594);
+            this.AereoView.TabIndex = 1;
             // 
-            // cbPatAero
+            // tbCodiceAeromobile
             // 
-            this.cbPatAero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbPatAero.FormattingEnabled = true;
-            this.cbPatAero.Location = new System.Drawing.Point(6, 19);
-            this.cbPatAero.Name = "cbPatAero";
-            this.cbPatAero.Size = new System.Drawing.Size(188, 21);
-            this.cbPatAero.TabIndex = 0;
+            this.tbCodiceAeromobile.Location = new System.Drawing.Point(6, 49);
+            this.tbCodiceAeromobile.MaxLength = 10;
+            this.tbCodiceAeromobile.Name = "tbCodiceAeromobile";
+            this.tbCodiceAeromobile.Size = new System.Drawing.Size(178, 20);
+            this.tbCodiceAeromobile.TabIndex = 0;
+            this.tbCodiceAeromobile.Click += new System.EventHandler(this.AutoComplete);
             // 
-            // cbPatMil
+            // tbNomerAeromobile
             // 
-            this.cbPatMil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbPatMil.FormattingEnabled = true;
-            this.cbPatMil.Location = new System.Drawing.Point(6, 46);
-            this.cbPatMil.Name = "cbPatMil";
-            this.cbPatMil.Size = new System.Drawing.Size(188, 21);
-            this.cbPatMil.TabIndex = 1;
+            this.tbNomerAeromobile.Location = new System.Drawing.Point(6, 91);
+            this.tbNomerAeromobile.MaxLength = 10;
+            this.tbNomerAeromobile.Name = "tbNomerAeromobile";
+            this.tbNomerAeromobile.Size = new System.Drawing.Size(178, 20);
+            this.tbNomerAeromobile.TabIndex = 1;
             // 
-            // btnInserisciPatente
+            // tbAutonomia
             // 
-            this.btnInserisciPatente.Location = new System.Drawing.Point(6, 565);
-            this.btnInserisciPatente.Name = "btnInserisciPatente";
-            this.btnInserisciPatente.Size = new System.Drawing.Size(188, 23);
-            this.btnInserisciPatente.TabIndex = 2;
-            this.btnInserisciPatente.Text = "Inserisci";
-            this.btnInserisciPatente.UseVisualStyleBackColor = true;
-            this.btnInserisciPatente.Click += new System.EventHandler(this.btnInserisciPatente_Click);
+            this.tbAutonomia.Location = new System.Drawing.Point(6, 302);
+            this.tbAutonomia.MaxLength = 10;
+            this.tbAutonomia.Name = "tbAutonomia";
+            this.tbAutonomia.Size = new System.Drawing.Size(178, 20);
+            this.tbAutonomia.TabIndex = 3;
             // 
-            // dateTimePatente
+            // tbCapienzaSer
             // 
-            this.dateTimePatente.Location = new System.Drawing.Point(6, 73);
-            this.dateTimePatente.Name = "dateTimePatente";
-            this.dateTimePatente.Size = new System.Drawing.Size(188, 20);
-            this.dateTimePatente.TabIndex = 3;
+            this.tbCapienzaSer.Location = new System.Drawing.Point(193, 49);
+            this.tbCapienzaSer.MaxLength = 10;
+            this.tbCapienzaSer.Name = "tbCapienzaSer";
+            this.tbCapienzaSer.Size = new System.Drawing.Size(178, 20);
+            this.tbCapienzaSer.TabIndex = 4;
+            // 
+            // tbPeso
+            // 
+            this.tbPeso.Location = new System.Drawing.Point(193, 133);
+            this.tbPeso.MaxLength = 10;
+            this.tbPeso.Name = "tbPeso";
+            this.tbPeso.Size = new System.Drawing.Size(178, 20);
+            this.tbPeso.TabIndex = 5;
+            // 
+            // tbCostruttore
+            // 
+            this.tbCostruttore.Location = new System.Drawing.Point(6, 133);
+            this.tbCostruttore.Name = "tbCostruttore";
+            this.tbCostruttore.Size = new System.Drawing.Size(178, 20);
+            this.tbCostruttore.TabIndex = 6;
+            // 
+            // tbQuotaOperativa
+            // 
+            this.tbQuotaOperativa.Location = new System.Drawing.Point(6, 218);
+            this.tbQuotaOperativa.MaxLength = 10;
+            this.tbQuotaOperativa.Name = "tbQuotaOperativa";
+            this.tbQuotaOperativa.Size = new System.Drawing.Size(178, 20);
+            this.tbQuotaOperativa.TabIndex = 7;
+            // 
+            // tbVelocitàMax
+            // 
+            this.tbVelocitàMax.Location = new System.Drawing.Point(6, 260);
+            this.tbVelocitàMax.MaxLength = 10;
+            this.tbVelocitàMax.Name = "tbVelocitàMax";
+            this.tbVelocitàMax.Size = new System.Drawing.Size(178, 20);
+            this.tbVelocitàMax.TabIndex = 8;
+            // 
+            // tbSpintaMax
+            // 
+            this.tbSpintaMax.Location = new System.Drawing.Point(6, 349);
+            this.tbSpintaMax.MaxLength = 8;
+            this.tbSpintaMax.Name = "tbSpintaMax";
+            this.tbSpintaMax.Size = new System.Drawing.Size(178, 20);
+            this.tbSpintaMax.TabIndex = 10;
+            // 
+            // tbMotore
+            // 
+            this.tbMotore.Location = new System.Drawing.Point(193, 91);
+            this.tbMotore.MaxLength = 10;
+            this.tbMotore.Name = "tbMotore";
+            this.tbMotore.Size = new System.Drawing.Size(178, 20);
+            this.tbMotore.TabIndex = 11;
+            // 
+            // tbPistaAtt
+            // 
+            this.tbPistaAtt.Location = new System.Drawing.Point(193, 175);
+            this.tbPistaAtt.Name = "tbPistaAtt";
+            this.tbPistaAtt.Size = new System.Drawing.Size(178, 20);
+            this.tbPistaAtt.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Codice";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 16);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Nome";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 114);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Costruttore";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 156);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 16);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Funzione Primaria";
+            // 
+            // cbFunzionePrimaria
+            // 
+            this.cbFunzionePrimaria.FormattingEnabled = true;
+            this.cbFunzionePrimaria.Items.AddRange(new object[] {
+            "Multiruolo",
+            "Bombardiere",
+            "Intercettatore",
+            "Assalitore"});
+            this.cbFunzionePrimaria.Location = new System.Drawing.Point(6, 175);
+            this.cbFunzionePrimaria.Name = "cbFunzionePrimaria";
+            this.cbFunzionePrimaria.Size = new System.Drawing.Size(178, 21);
+            this.cbFunzionePrimaria.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 199);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 16);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Quota Operativa (m)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 241);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(159, 16);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Velocità Massima (mach)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 283);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 16);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Autonomia (km)";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 325);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(141, 16);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Spinta Massima (kg/s)";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(190, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(153, 16);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Capienza Serbatoio (kg)";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(190, 72);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 16);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Motore";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(190, 114);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(113, 16);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Peso a vuoto (kg)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(190, 156);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(137, 16);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "Lunghezza Pista  (km)";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(190, 198);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(104, 16);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Numero Membri";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(190, 241);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(75, 16);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Dimensioni";
+            // 
+            // tbDimesioni
+            // 
+            this.tbDimesioni.Location = new System.Drawing.Point(193, 260);
+            this.tbDimesioni.MaxLength = 50;
+            this.tbDimesioni.Name = "tbDimesioni";
+            this.tbDimesioni.Size = new System.Drawing.Size(178, 109);
+            this.tbDimesioni.TabIndex = 29;
+            this.tbDimesioni.Text = "";
+            // 
+            // btnInserisciAereo
+            // 
+            this.btnInserisciAereo.Location = new System.Drawing.Point(6, 565);
+            this.btnInserisciAereo.Name = "btnInserisciAereo";
+            this.btnInserisciAereo.Size = new System.Drawing.Size(377, 23);
+            this.btnInserisciAereo.TabIndex = 30;
+            this.btnInserisciAereo.Text = "Inserisci";
+            this.btnInserisciAereo.UseVisualStyleBackColor = true;
+            this.btnInserisciAereo.Click += new System.EventHandler(this.btnInserisciAereo_Click);
+            // 
+            // cbNumeroMembri
+            // 
+            this.cbNumeroMembri.FormattingEnabled = true;
+            this.cbNumeroMembri.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"});
+            this.cbNumeroMembri.Location = new System.Drawing.Point(193, 217);
+            this.cbNumeroMembri.Name = "cbNumeroMembri";
+            this.cbNumeroMembri.Size = new System.Drawing.Size(178, 21);
+            this.cbNumeroMembri.TabIndex = 31;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btnVisualizzaAereo);
+            this.groupBox6.Location = new System.Drawing.Point(6, 375);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(365, 184);
+            this.groupBox6.TabIndex = 32;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Visualizza";
+            // 
+            // btnVisualizzaAereo
+            // 
+            this.btnVisualizzaAereo.Location = new System.Drawing.Point(6, 19);
+            this.btnVisualizzaAereo.Name = "btnVisualizzaAereo";
+            this.btnVisualizzaAereo.Size = new System.Drawing.Size(353, 159);
+            this.btnVisualizzaAereo.TabIndex = 0;
+            this.btnVisualizzaAereo.Text = "Visualizza Tutto";
+            this.btnVisualizzaAereo.UseVisualStyleBackColor = true;
+            this.btnVisualizzaAereo.Click += new System.EventHandler(this.btnVisualizzaAereo_Click);
             // 
             // Main
             // 
@@ -537,8 +932,13 @@ namespace AeronauticaMilitare
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPatente.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PatenteView)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.tabVelivoli.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AereoView)).EndInit();
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -582,6 +982,39 @@ namespace AeronauticaMilitare
         private System.Windows.Forms.Button btnInserisciPatente;
         private System.Windows.Forms.ComboBox cbPatMil;
         private System.Windows.Forms.ComboBox cbPatAero;
+        private System.Windows.Forms.DataGridView AereoView;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox cbFunzionePrimaria;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbPistaAtt;
+        private System.Windows.Forms.TextBox tbMotore;
+        private System.Windows.Forms.TextBox tbSpintaMax;
+        private System.Windows.Forms.TextBox tbVelocitàMax;
+        private System.Windows.Forms.TextBox tbQuotaOperativa;
+        private System.Windows.Forms.TextBox tbCostruttore;
+        private System.Windows.Forms.TextBox tbPeso;
+        private System.Windows.Forms.TextBox tbCapienzaSer;
+        private System.Windows.Forms.TextBox tbAutonomia;
+        private System.Windows.Forms.TextBox tbNomerAeromobile;
+        private System.Windows.Forms.TextBox tbCodiceAeromobile;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbNumeroMembri;
+        private System.Windows.Forms.Button btnInserisciAereo;
+        private System.Windows.Forms.RichTextBox tbDimesioni;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button btnVisualizzaAereo;
     }
 }
 
