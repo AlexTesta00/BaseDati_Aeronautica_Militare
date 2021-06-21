@@ -41,6 +41,7 @@ namespace AeronauticaMilitare
                 cbPatAero.Items.Add(allItem[i]);
                 cbCodAereoArm.Items.Add(allItem[i]);
                 cbCodAereoMan.Items.Add(allItem[i]);
+                cbAeromobileVolo.Items.Add(allItem[i]);
             }
 
             var data = from m in db.MILITARE
@@ -61,12 +62,21 @@ namespace AeronauticaMilitare
             }
 
             var pilota = from m in db.MILITARE
-                              where m.Tipo == "Specialista"
+                              where m.Tipo == "Pilota"
                               select m.MatricolaMilitare;
             var itemPilota = pilota.Select(x => x.ToString()).ToArray();
             for (int i = 0; i < itemPilota.Length; i++)
             {
                 cbCodPilotaIdon.Items.Add(itemPilota[i]);
+                cbMatricolaVolo.Items.Add(itemPilota[i]);
+            }
+
+            var missione = from m in db.MISSIONE
+                           select m.Nome;
+            var missioneItem = missione.Select(x => x.ToString()).ToArray();
+            for (int i = 0; i < itemSpecialista.Length; i++)
+            {
+                cbNomeVolo.Items.Add(missioneItem[i]);
             }
 
 
@@ -536,6 +546,178 @@ namespace AeronauticaMilitare
             var data = from I in db.IDONEITA_MEDICA
                        select I;
             IdonView.DataSource = data;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (tbCodiceVolo.Text == "" || tbArrivo.Text == "" || tbPartenza.Text == "" || tbDurata.Text == "" || cbAeromobileVolo.Text == "" || cbNomeVolo.Text == "" || cbMatricolaVolo.Text == "")
+            {
+                MessageBox.Show("Campi vuoti", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
+            {
+                VOLO volo = new VOLO()
+                {
+                    CodiceVolo = tbCodiceVolo.Text,
+                    Arrivo = float.Parse(tbArrivo.Text),
+                    Partenza = float.Parse(tbPartenza.Text),
+                    DurataComplessiva = int.Parse(tbDurata.Text),
+                    CodiceAeromobile = cbAeromobileVolo.Text,
+                    Nome = cbNomeVolo.Text,
+                    MatricolaMilitare = cbMatricolaVolo.Text,
+                    Data = dtVolo.Value
+
+                };
+
+                this.db.VOLO.InsertOnSubmit(volo);
+
+                try
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("Volo Inserito");
+                    var data = from V in db.VOLO
+                               select V;
+                    voloView.DataSource = data;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Errore nel database: " + ex);
+                }
+
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            var data = from V in db.VOLO
+                       select V;
+            voloView.DataSource = data;
+        }
+
+        private void riempi(object sender, EventArgs e)
+        {
+            tbCodiceVolo.Text = this.idGenerator.generateIdCode(10);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var aereomobile_difettoso = (from v in db.VOLO
+                                         where
+                                           v.MISSIONE.Emergenza == true
+                                         group v.AEROMOBILE by new
+                                         {
+                                             v.AEROMOBILE.CodiceAeromobile
+                                         } into g
+                                         orderby
+                                           g.Count() descending
+                                         select new
+                                         {
+                                             g.Key.CodiceAeromobile,
+                                             NumeroAtterraggiEmergenza = g.Count()
+                                         }).Take(1);
+            dtStatistiche.DataSource = aereomobile_difettoso;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var manutentore_peggiore = (from m in db.MANUTENZIONE
+                                        where
+                                          m.MILITARE.Tipo == "Specialista" &&
+                                          m.CodiceAeromobile ==
+                                            ((from v in db.VOLO
+                                              where v.MISSIONE.Emergenza == true
+                                              group v.AEROMOBILE by new
+                                              {
+                                                  v.AEROMOBILE.CodiceAeromobile
+                                              } into g
+                                              orderby g.Count() descending
+                                              select new
+                                              {
+                                                  g.Key.CodiceAeromobile
+                                              }).Take(1).First().CodiceAeromobile)
+                                        select new
+                                        {
+                                            MatricolaMilitare = m.MILITARE.MatricolaMilitare,
+                                            Nome = m.MILITARE.Nome,
+                                            Cognome = m.MILITARE.Cognome,
+                                            Grado = m.MILITARE.Grado,
+                                            Email = m.MILITARE.Email,
+                                            Telefono = m.MILITARE.Telefono,
+                                            CodiceFiscale = m.MILITARE.CodiceFiscale,
+                                            StatoFamiliare = m.MILITARE.StatoFamiliare,
+                                            Tipo = m.MILITARE.Tipo,
+                                            Stormo = m.MILITARE.Stormo,
+                                            GruppoDiVolo = m.MILITARE.GruppoDiVolo
+                                        }).Distinct();
+            dtStatistiche.DataSource = manutentore_peggiore;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            float maxValue = db.AEROMOBILE.Max(x => x.SpintaMassima);
+            var decollo_rapido = from a in db.AEROMOBILE
+                                 where a.SpintaMassima == maxValue
+                                 select new
+                                 {
+                                     a.CodiceAeromobile,
+                                     a.Nome,
+                                     a.SpintaMassima
+                                 };
+            dtStatistiche.DataSource = decollo_rapido;
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            var più_usato = (from v in db.VOLO
+                             group new { v.AEROMOBILE, v } by new
+                             {
+                                 v.AEROMOBILE.CodiceAeromobile,
+                             } into g
+                             orderby (int?)g.Sum(p => p.v.DurataComplessiva) descending
+                             select new
+                             {
+                                 g.Key.CodiceAeromobile,
+                                 OreTotali = (int?)g.Sum(p => p.v.DurataComplessiva)
+                             }).Take(1);
+            dtStatistiche.DataSource = più_usato;
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            var combinazione_migliore = from v in db.VOLO
+                                        where
+                                          v.AEROMOBILE.CodiceAeromobile ==
+                                            ((from a0 in db.AEROMOBILE
+                                              orderby a0.SpintaMassima descending
+                                              select new
+                                              {
+                                                  a0.CodiceAeromobile
+                                              }).Take(1).First().CodiceAeromobile) &&
+                                          v.MILITARE.MatricolaMilitare ==
+                                            ((from v1 in db.VOLO
+                                              where v1.MILITARE.Tipo == "Pilota" &&
+                                              v1.AEROMOBILE.CodiceAeromobile == ((from a0 in db.AEROMOBILE
+                                                                                  orderby a0.SpintaMassima descending
+                                                                                  select new
+                                                                                  {
+                                                                                      a0.CodiceAeromobile
+                                                                                  }).Take(1).First().CodiceAeromobile)
+                                              group new { v.MILITARE, v.AEROMOBILE } by new
+                                              {
+                                                  v.MILITARE.MatricolaMilitare,
+                                                  v.AEROMOBILE.CodiceAeromobile
+                                              } into g
+                                              where g.Sum(p => v.DurataComplessiva) > 0
+                                              select new
+                                              {
+                                                  g.Key.MatricolaMilitare
+                                              }).First().MatricolaMilitare)
+                                        select new
+                                        {
+                                            v.MILITARE.MatricolaMilitare,
+                                            v.AEROMOBILE.CodiceAeromobile
+                                        };
         }
     }
 }

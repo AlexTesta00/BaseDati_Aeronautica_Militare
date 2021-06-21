@@ -45,19 +45,22 @@ INSERT INTO aeroporto(CodiceAeroporto,LunghezzaPista)
 VALUES('RMI',3.340),
 	  ('FCO',3.500),
 	  ('MXP',1.000),
-	  ('NAP',2.000);
+	  ('NAP',2.000),
+      ('PES',3.500);
 */
 
 /*
 INSERT INTO Missione(Nome,Descrizione,Emergenza,Tipo,CodiceAeroporto,AeroportoDiPartenza,AeroportoDiArrivo)
 VALUES ('Volo libero','Il pilota dovrà effetture un volo ricognitivo',0,'Addestramento','RMI','RMI','RMI'),
 	   ('Volo corto','Il pilota dovrà effetture un volo a corto raggio',0,'Reale','FCO','FCO','RMI'),
-	   ('Scramble','Scramble in contatto con un aeromobile non identificato',0,'Addestramento','NAP','NAP','NAP')
+	   ('Scramble','Scramble in contatto con un aeromobile non identificato',0,'Addestramento','NAP','NAP','NAP'),
+       ('Emergenza','Il pilota dovrà effetture un atterraggio di emergenza',1,'Realistico','NAP','NAP','PES');
 */
 
 /*
 INSERT INTO volo(CodiceVolo,Partenza,Arrivo,Data,DurataComplessiva,MatricolaMilitare,CodiceAeromobile,Nome)
 VALUES ('otgd4voefj',18.00,19.00,'2021-06-17',60,'vdclwxdsglxfuie7cl4n','x02mqpf1hj','Volo libero'),
 	   ('a86l5tap2d',17.00,19.00,'2021-05-27',120,'dkjnbsze47ytln8wyl8f','8zru4czeg8','Volo corto'),
-	   ('5dcfv2vxho',15.30,16.00,'2021-05-10',30,'fcahzvntjcf1xhvea1xw','bebbjl9eey','Scramble');
+	   ('5dcfv2vxho',15.30,16.00,'2021-05-10',30,'fcahzvntjcf1xhvea1xw','bebbjl9eey','Scramble'),
+       ('zevo56prot',20.00,21.00,'2021-06-21',60,'vdclwxdsglxfuie7cl4n','x02mqpf1hj','Emergenza');
 */
